@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+megaphone
+
+*.json
+/.vscode
+phonebook
+*.log
+ex02/Makefile
