@@ -1,25 +1,34 @@
-# Compiler
+# Define the compiler and the flags
 CXX = c++
-
-# Compiler Flags
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# Targets
-TARGET = tests
-SOURCES = Account.cpp tests.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
+# Name of the output binary
+NAME = tests
 
-# Build the main executable
-$(TARGET): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
+# Source and object files
+SRC = Account.cpp tests.cpp
+OBJ = $(SRC:.cpp=.o)
 
-# Compile source files into object files
+# Rule to compile the program
+all: $(NAME)
+
+# Rule to create the binary from the object file
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+
+# Rule to create object files from source files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean up build files
+# Rule to clean the object files
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(OBJ)
 
-# Rebuild everything
-re: clean $(TARGET)
+# Rule to clean all generated files (object files and binary)
+fclean: clean
+	rm -f $(NAME)
+
+# Rule to recompile the project
+re: fclean all
+
+.PHONY: all clean fclean re
