@@ -31,10 +31,11 @@
 *.out
 *.app
 
-megaphone
+*/megaphone
+*/phonebook
+*/tests
 
 *.json
 /.vscode
 phonebook
 *.log
-ex02/Makefile
