@@ -3,7 +3,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Name of the output binary
-NAME = megaphone
+NAME = phonebook
 
 # Source and object files
 SRC = main.cpp Contact.cpp PhoneBook.cpp
